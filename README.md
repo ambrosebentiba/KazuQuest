@@ -2,9 +2,9 @@
 
 CONTRIBUTORS :
 
-Merwan Mahiout
-Cyril Chuzel
-Ambrose Ben Tiba
+Merwan Mahiout, 
+Cyril Chuzel, 
+Ambrose Ben Tiba, 
 
 ---------------
 
