@@ -5,7 +5,7 @@ import time
 # Define the starting stats of the player
 class Player:
     def __init__(self):
-        self.name = "Kazutrash"
+        self.name = "Poka-Poka"
         self.hp = 10
         self.maxHp = 10
         self.atk = 3
@@ -28,7 +28,7 @@ class flying_cabbage:
         self.atk = 1
         self.xp = 2
         self.gold = 1
-        self.name = "choux volant"
+        self.name = "flying cabbage"
         self.item = food
 
 
@@ -38,7 +38,7 @@ class giant_frog:
         self.atk = 3
         self.xp = 4
         self.gold = 3
-        self.name = "grenouille géante"
+        self.name = "Giant frog"
         self.item = food
 
 
@@ -77,7 +77,7 @@ class undead:
         self.atk = 6
         self.xp = 20
         self.gold = 18
-        self.name = "mort-vivant"
+        self.name = "undead"
         self.item = "undefined"
 
 
@@ -116,113 +116,118 @@ class food:
 
 class heal_potion:
     def __init__(self):
-        self.name = "Potion de soin"
+        self.name = "healing potion"
         self.heal = 10
         self.count = 1
 
 
 class mana_stone:
     def __init__(self):
-        self.name = "Pierre de mana"
+        self.name = "mana stone"
         self.heal = 10
         self.count = 1
 
 
-# class explosive_fragment:
-#     def __init__(self):
-#         self.name = "Fragment explosif"
-#         self.dmg = 5
-#         self.count = 1
+class explosive_fragment:
+    def __init__(self):
+        self.name = "Fragment explosif"
+        self.dmg = 5
+        self.count = 1
 
 
 # Define stats of skills and spells
 class light_heal:
     def __init__(self):
-        self.name = "Soins légers"
+        self.name = "light heal"
         self.heal = 5
         self.cost = 5
 
 class intermediate_heal:
     def __init__(self):
-        self.name = "Soins intermédiaires"
+        self.name = "medium heal"
         self.hp = 10
         self.cost = 10
 
 class advanced_heal:
     def __init__(self):
-        self.name = "Soins avancés"
+        self.name = "maximum heal"
         self.heal = 20
         self.cost = 18
 
 class fire_ball:
     def __init__(self):
-        self.name = "Boule de feu"
+        self.name = "fire ball"
         self.cost = 6
         self.dmg = 4
 
 class lightning:
     def __init__(self):
-        self.name = "Eclair"
+        self.name = "lightning"
         self.cost = 9
         self.dmg = 9
 
 class sacred_sanctuary:
     def __init__(self):
-        self.name = "Sanctuaire Sacré"
+        self.name = "sacred sanctuary"
         self.cost = 11
         self.heal = 9
         self.dmg = 4
 
 class drain_touch:
     def __init__(self):
-        self.name = "Drain de Vie"
+        self.name = "Drain drain_touch"
         self.cost = 11
         self.heal = 4
         self.dmg = 9
 
-# class explosive_shoot:
-#     def init(self):
-#         self.name = "Tir explosif"
-#         self.cost = 15
-#         self.dmg = 11
+class explosive_shoot:
+    def init(self):
+        self.name = "explosive shoot"
+        self.cost = 15
+        self.dmg = 11
 
 
 
 # Display the menu at the start of the game, wich allows the player to start a new game or see the credits.
 def mainMenu():
-    print("1.Nouvelle partie")
-    print("2.Histoire & Régles")
-    print("3.Crédits")
-    print("4.Quitter")
+    print("1. Start Game")
+    print("2. History & Rules")
+    print("3. Credits")
+    print("4. Quit")
     #ASKING THE USER WHAT THEY WHANT 
-    selecMenu = int(input("Que voulez-vous faire? 1/2/3/4 : "))
+    selecMenu = int(input(">> Please chose from 1, 2, 3 or 4"))
     if selecMenu == 1:
         startGame()
     elif selecMenu == 2:
-        print("- Il était une fois un groupe de puissants aventuriers, composé d’une Archimage ,d’une croisée , d’une Archiprêtre et d’un vaillant et charismatique héros provenant d’un autre monde ont décidé de faire face au général du roi démon Vanir et sont devenus des légendes...")
+        print(">> Once upon a time a group of powerful adventurers, composed of an Archmage, a Crusader, an Archpriest and a valiant and charismatic hero from another world decided to face the general of the demon king Vanir and became legends...")
         time.sleep(2.5)
-        print("- Sauf que non. ")
+        print(">> But that excitement was short lived...")
         time.sleep(2.5)
-        print("- La croisée avait pour mission de tuer des choux dans les plaines mais étant une masochiste incapable de manier une épée, elle ne réussit pas en tuer un seul et les conséquences ont été désatreuses car la moitié des champs de la ville furent détruits.")
+        print(">> The crusader's mission was to kill cabbages in the plains, but being a masochist unable to wield a sword, she failed to kill a single one and the consequences were disastrous, because half of the fields of the city were destroyed.")
         time.sleep(2.5)
-        print("- Dû à ses dettes immenses provenant de l’achat d’une grande quantité d’alcool dans la ville d’Axel, l’archiprêtre à décidé de fuir ses dettes et de se réfugier dans la forêt réveillant de nombreuses bêtes.")
+        print(">> Due to his immense debts from the purchase of a large amount of alcohol in the city of Axel, the archpriest decided to flee his debts and take refuge in the forest awakening many beasts.")
         time.sleep(2.5)
         print("- Pour exprimer son amour pour la magie d’explosion, la jeune archimage déchaîna sa magie sur un château abandonné rempli de mort vivant ou de squelette qui dormait paisiblement. Vous êtes le seul espoir face au démoniaque et puissant Vanir pour rétablir l’ordre et la paix dans la ville d’Axel.")
         time.sleep(2.5)
-        print("- Quant au héros, on raconte qu'il a disparu et est devenu marchand dans le but de vivre une vie de paresse sans avoir à combattre.")
+        print(">> But for Kazuma, it is said that he disappeared and became a merchant in order to live a life of laziness without having to fight.")
         time.sleep(2.5)
         print("")
         print("--------------------------------------------")
         print("")
-        print("Vous êtes un aventurier débutant dont le rôle est d'éliminer un puissant afin de rétablir la paix dans la vile!")
-        print("Vous devrez : ")
-        print("- Affronter des monstre pour gagner de l’argent/item/xp et gloire,")
-        print("- Utiliser cet argent pour acheter des puissantes armes/armures/sorts,")
-        print("- Atteindre le chateau du puissant démon Vanir et le vaincre !")
-        #confirm = str(input("Sortir? Ecrire oui quand vous êtes prêts. "))
-        #if confirm == "oui" or confirm == "Oui" or confirm == "o" or confirm == "1" :
         print("")
+        print("Your tasks are now to: ")
+        print(">> Battle the fiercest of monstres, to gain money, xp and glory.")
+        print(">> Use your battle experiance to buy wepons and tools.")
+        print("And most of all...")
+        print(">> DEFEAT THE DEMON KING")
+        print("")
+        confirm = str(input(">> Do you wish to continue? y/n"))
+        if confirm == "yes" or confirm == "y" or confirm == "Yes" or confirm == "Y" :
+            print("okay...")
+        else:
+            sys.exit()
         mainMenu()
+    
     elif selecMenu == 3:
         print("____________________________________________________")
         print("|                                                   |")
@@ -235,11 +240,11 @@ def mainMenu():
         print("|          And thanks also to our professor         |")
         print("|     ",'\033[32m',"    Loic Janin",'\033[39m',"from",'\033[32m',"HETIC",'\033[39m',"who            |")
         print("|              taught us about Python               |")
-        print("|                                                   |")
+        print("|            And the Translator... Thinker          |")
         print("|___________________________________________________|")
         mainMenu()
     elif selecMenu == 4:
-        print("Alors comme ça on fuit? Adieu sale couard!")
+        print("Alright see ya later Baka")
         sys.exit()
 
 
@@ -247,7 +252,7 @@ def mainMenu():
 # Also activate cheat code for immediate fight against boss
 def startGame():
     print("")
-    print("\033[1;42;30m NOUVELLE PARTIE \033[0m")
+    print("\033[1;42;30m New Clan \033[0m")
     print("")
 
     global player
@@ -284,11 +289,11 @@ def startGame():
         player.armor = 5
         EventVanir()
 
-    print("- Vous êtes un aventurier débutant vivant dans la ville d’Axel réputée ""pour ses activités de commerce ainsi que pour sa guilde réunissant les personnes en quête d’aventures.")
+    print(">> You are a beginner adventurer living in the town of Axel known for its trading activities as well as its guild bringing together people looking for adventures.")
     time.sleep(1.5)
-    print("- Vous levez de votre lit et décidez de vous balader dans la ville, vous pensez au début aller dans un “café”,mais vous préférez aller à la guilde des aventuriers.")
+    print(">> You get out of bed and decide to walk around the city, you think at first to go to a café, but you prefer to go to the adventurers' guild.")
     time.sleep(1.5)
-    print("- Vous entrez dans la guilde, pour prendre une quête facile pour obtenir un peux d’argent, vous donner votre quête à la charmante réceptionniste de la guilde Luna pour qu’elle valide votre quête")
+    print("- You enter the guild, to take an easy quest to get a can of money, give you your quest to the charming receptionist of the luna guild to validate your quest")
     time.sleep(1.5)
     print('\033[33m')
     print("- Luna : Ca fait longtemps que vous n'êtes pas passé à la guilde")
