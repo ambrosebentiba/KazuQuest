@@ -208,7 +208,7 @@ def mainMenu():
         time.sleep(5)
         print(">> Due to his immense debts from the purchase of a large amount of alcohol in the city of Axel, the archpriest decided to flee his debts and take refuge in the forest awakening many beasts.")
         time.sleep(5)
-        print("- Pour exprimer son amour pour la magie d’explosion, la jeune archimage déchaîna sa magie sur un château abandonné rempli de mort vivant ou de squelette qui dormait paisiblement. Vous êtes le seul espoir face au démoniaque et puissant Vanir pour rétablir l’ordre et la paix dans la ville d’Axel.")
+        print(">> To express Megumin's love for explosion magic, the young archmage unleashed her magic on an abandoned castle filled with the living dead or skeleton that slept peacefully. You are the only hope in the face of the demonic and powerful Vanir to restore order and peace in the city of Axel.")
         time.sleep(5)
         print(">> But for Kazuma, it is said that he disappeared and became a merchant in order to live a life of laziness without having to fight.")
         time.sleep9(5)
@@ -296,32 +296,36 @@ def startGame():
     time.sleep(2)
     print(">> You enter the guild, to take an easy quest to get a can of money, give you your quest to the charming receptionist of the luna guild to validate your quest")
     time.sleep(2)
+    print('')
     print('\033[33m')
-    print("- Luna : Ca fait longtemps que vous n'êtes pas passé à la guilde")
+    print'')
+    print("Luna: It's been a long time since you switched to the guild")
     time.sleep(1.5)
-    player.name = input("- Luna : Tu pourrais me rappeler ton prénom ?: ")
-    print("- Luna : Donne moi ta quête ",player.name,"je vais te la valider tout de suite.")
+    player.name = input(">> Could you remind me your name again?: ")
+    print("Luna: Give me your quest," player.name, "I'll validate it right away.")
     time.sleep(1.5)
     print('\033[39m')
-    print("- Pendant que Luna valide votre quête vous décidez de regarder sur votre carte d’aventurier vos statistiques:")
+    print('')
+    print(">> While Luna validates your quest you decide to look on your adventurer map your stats:")
     time.sleep(1.5)
+    print('')
     print('\033[34m')
-    print("- Vous êtes au niveau 1.")
+    print(">> You're in level 1")
     print(player.hp,"/",player.hp,"PV")
     print(player.mp,"/",player.mp,"PM")
-    print("- Sorts:")
-    print("- Soin rapide")
-    print("- Boule de feu")
-    print("- Vous avez",player.coins,"Eris")
+    print("> Spells: ")
+    print("> Fast care")
+    print("> Fireball")
+    print("> You have",player.coins,"Coins")
     time.sleep(3)
     print('\033[39m')
-    print("- Avant que Luna valide votre quête, un grand groupe d'aventuriers blessés et terrorisés arrive expliquant que le groupe de héros a échoué et que le général démon Vanir à prévu d'envoyer un fléau sur la ville d’Axel et a décidé de se cacher dans un château.")
+    print(">> Before Luna validates your quest, a large group of wounded and terrorized adventurers arrives explaining that the group of heroes has failed and that the demon general Vanir has planned to send a plague on the city of Axel and has decided to hide in a castle.")
     print('\033[33m')
     time.sleep(1.5)
-    print("- Luna: C’est un grand problème car tous les aventuriers sont soit enfouis ou ont quitté la ville et le seul aventurier disponible c'est toi.")
+    print(">> Luna: This is a big problem because all the adventurers are either buried or have left the city and the only adventurer available is you.")
     time.sleep(1.5)
-    print("- Vous quittez la guilde et votre aventure commence maintenant: ")
     print("")
+    print(">> Your adventrue begins now...")
 
     Grille()
     Event()
@@ -349,46 +353,50 @@ def Grille():
 # Ask the player were he wants to go, and if the case chosen is defined and in the boundaries of the grid.
 # If so, update position, send a message and launch event function. If not, ask again for a direction.
 def Movement():
-    MovementPos = str(input("\033[1;36m > Dans quelle direction voulez-vous aller ? (N/O/S/E) \033[0m"))
+    MovementPos = str(input("\033[1;36m Which path do you want to take? (N/E/S/W) \033[0m"))
 
     if MovementPos == "N":
         if position[0] * hauteurGrille >= 0 and position[0] * hauteurGrille <= hauteurGrille * (hauteurGrille - 2) and \
                 grille[((position[0] + 1) * largeurGrille + position[1])][2] != "undefined":
             position[0] += 1
-            print("\033[36m Vous partez vers le nord \033[0m")
+            print("\033[36m >> You chose North \033[0m")
         else:
-            print("\033[31m La zone est bloquée, essayez une autre direction \033[0m")
+            print("\033[31m >> This Path is blocked! Please choose another direction.\033[0m")
             Movement()
 
     elif MovementPos == "O":
         if position[1] * largeurGrille >= 1 and position[1] <= largeurGrille and \
                 grille[(position[0] * largeurGrille + (position[1] - 1))][2] != "undefined":
             position[1] -= 1
-            print("\033[36m Vous partez vers l'ouest \033[0m")
+            print("\033[36m >> You chose West. \033[0m")
         else:
-            print("\033[31m La zone est bloquée, essayez une autre direction \033[0m")
+            print("\033[31m Oh no! This path is blocked! Please choose another one... \033[0m")
             Movement()
 
     elif MovementPos == "E":
         if position[1] >= 0 and position[1] <= largeurGrille - 2 and \
                 grille[(position[0] * largeurGrille + (position[1] + 1))][2] != "undefined":
             position[1] += 1
-            print("\033[36m Vous partez vers l'est \033[0m")
+            print("\033[36m You want to go East? \033[0m")
         else:
-            print("\033[31m La zone est bloquée, essayez une autre direction \033[0m")
+            print("\033[31m This one is also blocked! Please choose another path... \033[0m")
             Movement()
 
     elif MovementPos == "S":
         if position[0] * hauteurGrille >= 1 and position[0] * hauteurGrille <= hauteurGrille * (hauteurGrille - 1) and \
                 grille[((position[0] - 1) * largeurGrille + position[1])][2] != "undefined":
             position[0] -= 1
-            print("\033[36m Vous partez vers le sud")
+            print("\033[36m You picked South")
         else:
-            print("\033[31m La zone est bloquée, essayez une autre direction \033[0m")
+            print("\033[31m Please choose another direction please ;-;... \033[0m")
             Movement()
 
     else:
-        print("\033[31m Direction non reconnue, veuillez rééssayer \033[0m")
+        print("\033[31m What are you talking about? Please choose: \033[0m")
+        print("North (N)")
+        print("East (E)")
+        print("South (S)")
+        print("West (W)")
         Movement()
 
     Event()
