@@ -211,7 +211,7 @@ def mainMenu():
         print(">> To express Megumin's love for explosion magic, the young archmage unleashed her magic on an abandoned castle filled with the living dead or skeleton that slept peacefully. You are the only hope in the face of the demonic and powerful Vanir to restore order and peace in the city of Axel.")
         time.sleep(5)
         print(">> But for Kazuma, it is said that he disappeared and became a merchant in order to live a life of laziness without having to fight.")
-        time.sleep9(5)
+        time.sleep(5)
         print("")
         print("--------------------------------------------")
         print("")
@@ -234,13 +234,12 @@ def mainMenu():
         print("|                                                   |")
         print("|        Contributors to the Kazuquest project :    |")
         print("|                                                   |")
-        print("|     ",'\033[36m',"          Ambrose Ben Tiba      ",'\033[39m',"          |")
-        print("|     ",'\033[35m',"            Cyril Chuzel        ",'\033[39m',"          |")
-        print("|     ",'\033[31m',"           Merwan Mahiout       ",'\033[39m',"          |")
+        print("|     ",'\033[36m',"Ambrose Ben Tiba",'\033[39m',"  |")
+        print("|     ",'\033[35m',"Cyril Chuzel",'\033[39m',"      |")
+        print("|     ",'\033[31m',"Merwan Mahiout",'\033[39m',"    |")
         print("|                                                   |")
         print("|          And thanks also to our professor         |")
-        print("|     ",'\033[32m',"    Loic Janin",'\033[39m',"from",'\033[32m',"HETIC",'\033[39m',"who            |")
-        print("|              taught us about Python               |")
+        print("|                   Loic Janin                      |")
         print("|            And the Translator... Thinker          |")
         print("|___________________________________________________|")
         mainMenu()
@@ -298,11 +297,11 @@ def startGame():
     time.sleep(2)
     print('')
     print('\033[33m')
-    print'')
+    print('')
     print("Luna: It's been a long time since you switched to the guild")
     time.sleep(1.5)
     player.name = input(">> Could you remind me your name again?: ")
-    print("Luna: Give me your quest," player.name, "I'll validate it right away.")
+    print("Luna: Give me your quest,", player.name, "I'll validate it right away.")
     time.sleep(1.5)
     print('\033[39m')
     print('')
@@ -364,7 +363,7 @@ def Movement():
             print("\033[31m >> This Path is blocked! Please choose another direction.\033[0m")
             Movement()
 
-    elif MovementPos == "O":
+    elif MovementPos == "W":
         if position[1] * largeurGrille >= 1 and position[1] <= largeurGrille and \
                 grille[(position[0] * largeurGrille + (position[1] - 1))][2] != "undefined":
             position[1] -= 1
@@ -412,17 +411,17 @@ def Event():
         EventVanir()
     elif position == [0, 3]:
         print(
-            "\033[1;34m Vous êtes arrivé dans un petit bazar remplis d'objets, tenu par un marchand nommé Satou Kazuma\033[0m")
+            "\033[1;34m>> You have arrived in a small bazaar full of objects, run by a merchant named Satou Kazuma\033[0m")
         Shop()
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "plains":
-        print("\033[1;36m Vous vous trouvez dans les plaines, peuplées d'enemis de bas niveau. \033[0m")
+        print("\033[1;36m You find yourself in the plains, populated by low level enemies. \033[0m")
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "forest":
-        print("\033[1;36m Vous vous trouvez dans la foret, habitée par des enemis de rang intermediaire. \033[0m")
+        print("\033[1;36m You find yourself in the forest, populated by medium level enemies. \033[0m")
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "castle":
-        print("\033[1;36m Vous vous trouvez dans le chateau, hanté par de nombreux enemis de rang supérieur \033[0m")
+        print("\033[1;36m You find yourself in the castle, populated by high level enemies. \033[0m")
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "city":
-        print("\033[1;36m Vous vous trouvez dans la ville d'Axel, où se rassemblent les aventuriers débutants en quête d'aventure. \033[0m")
-        print("\033[1;36m Vous trouverez un magasin à l'extrème sud. \033[0m")
+        print("\033[1;36m You find yourself in the town of Axel, where novice adventurers in search of adventure congregate. \033[0m")
+        print("\033[1;36m You soon find a store in the far South \033[0m")
 
     if grille[((position[0]) * largeurGrille + position[1])][2] != "city":
         spawnEnemies()
@@ -434,17 +433,17 @@ def Event():
 # And launch fight against the enemies list with a message
 def spawnEnemies():
     Enemies = []
-    print("\033[1;31m Des monstres vous attaquent par surprise !\033[0m")
+    print("\033[1;31m>> Monsters come out of no where and attack you! \033[0m")
 
     if grille[((position[0]) * largeurGrille + position[1])][2] == "plains":
         enemyType = random.randint(0, 1)
         if enemyType == 0:
-            enemyType = "choux"
+            enemyType = "Cabbage"
             enemyNumber = random.randint(2, 4)
             for i in range(enemyNumber):
                 Enemies.append(flying_cabbage())
         elif enemyType == 1:
-            enemyType = "grenouille(s) géante(s)"
+            enemyType = "Giant Frogs"
             enemyNumber = random.randint(1, 2)
             for i in range(enemyNumber):
                 Enemies.append(giant_frog())
@@ -452,35 +451,35 @@ def spawnEnemies():
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "forest":
         enemyType = random.randint(2, 3)
         if enemyType == 2:
-            enemyType = "loup(s)"
+            enemyType = "Wolf"
             enemyNumber = random.randint(2, 4)
             for i in range(enemyNumber):
                 Enemies.append(wolf())
         elif enemyType == 3:
-            enemyType = "bandit(s)"
+            enemyType = "Bandits"
             enemyNumber = random.randint(1, 4)
             for i in range(enemyNumber):
                 Enemies.append(bandit())
-        # elif enemyType == 4:
-        #     enemyType = "rocher(s) explosif(s)"
-        #     enemyNumber = random.randint(1,2)
-        #     for i in range (enemyNumber) :
-        #         Enemies.append(explosive_rock())
+        elif enemyType == 4:
+             enemyType = "rocher(s) explosif(s)"
+             enemyNumber = random.randint(1,2)
+             for i in range (enemyNumber) :
+                 Enemies.append(explosive_rock())
 
     elif grille[((position[0]) * largeurGrille + position[1])][2] == "castle":
         enemyType = random.randint(4, 5)
         if enemyType == 4:
-            enemyType = "mort-vivant(s)"
+            enemyType = "Zombies"
             enemyNumber = random.randint(2, 3)
             for i in range(enemyNumber):
                 Enemies.append(undead())
         elif enemyType == 5:
-            enemyType = "squelette(s)"
+            enemyType = "Skeleton"
             enemyNumber = random.randint(2, 3)
             for i in range(enemyNumber):
                 Enemies.append(skeleton())
 
-    print("\033[33m Vous affrontez", enemyNumber, enemyType, "! \033[0m")
+    print("\033[33m You face", enemyNumber, enemyType, "! \033[0m")
     Fight(Enemies)
 
 
@@ -499,15 +498,15 @@ def spawnEnemies():
 # For all fight function, enemies list is in parameter,
 # and entering an incorrect integer when choosing option send you back to the precedent menu.
 def Fight(enemies):
-    print("\033[1;34m Vous avez ", player.hp, " / ", player.maxHp, "pv")
-    print(" Vous avez ", player.mp, " / ", player.maxMp, "pm \033[0m")
+    print("\033[1;34m Vous have ", player.hp, " / ", player.maxHp, "pv")
+    print(" You have ", player.mp, " / ", player.maxMp, "pm \033[0m")
 
-    print("\033[34m1 - Attaquer")
-    print("2 - Compétences et Sorts")
-    print("3 - Inventaire")
-    print("4 - Fuite")
+    print("\033[34m1 - Attack")
+    print("2 - Skills and spells")
+    print("3 - Inventory")
+    print("4 - Leak")
 
-    ChoixCombat = int(input("> Que voulez-vous faire ? (1/2/3/4) : \033[0m"))
+    ChoixCombat = int(input("> What do you choose ? (1/2/3/4) : \033[0m"))
 
     # Normal attack with 1/5 chance of critical with double damage.
     # Let you choose your target if there is more than one.
@@ -515,9 +514,9 @@ def Fight(enemies):
     if ChoixCombat == 1:
 
         if len(enemies) > 1:
-            ChoixEnemy = int(input("\033[34m Lequel voulez-vous attaquer ? \033[0m")) - 1
+            ChoixEnemy = int(input("\033[34m Which one do you want to attck ? \033[0m")) - 1
             while ChoixEnemy < 0 or ChoixEnemy > len(enemies) - 1:
-                ChoixEnemy = int(input("\033[31m Incorrect. Lequel voulez-vous attaquer ? \033[0m")) - 1
+                ChoixEnemy = int(input("\033[31m Wrong, which one do you want to attack? \033[0m")) - 1
         else:
             ChoixEnemy = 0
 
@@ -525,11 +524,11 @@ def Fight(enemies):
 
         if critical >= 8:
             damage = player.atk * 2 + player.weapon
-            print("\033[1;32m vous infligez des dégats sévéres au monstre  et lui infligez", damage,
-                  "de dégats !\033[0m")
+            print("\033[1;32m You inflict a ton of damage! CRITICAL ATTACK ", damage,
+                  "damage!\033[0m")
         else:
             damage = player.atk + player.weapon
-            print("\033[32m vous attaquez le monstre avec votre arme et lui infligez", damage, "de dégats \033[0m")
+            print("\033[32m You attack the monster with your weapon and inflict", damage, " damage \033[0m")
         enemies[ChoixEnemy].hp -= damage
         EndPlayerTurn(enemies)
 
@@ -546,11 +545,11 @@ def Fight(enemies):
     elif ChoixCombat == 4:
         fuite = random.randint(0, 9)
         if fuite <= 7:
-            print("\033[32m Vous rassemblez votre courage avant de fuir en hurlant \033[0m")
+            print("\033[32m You gather all your courage and run away like a bitch... \033[0m")
             print("")
             Movement()
         else:
-            print("\033[31m Vous courez dans la mauvaise direction et rentrez dans un monstre \033[0m")
+            print("\033[31m You ran with your eyes closed and bumped into another monster... \033[0m")
             EnemiesTurn(enemies)
 
     # If the player sends an incorrect value on the menu, restart fight function
@@ -569,7 +568,7 @@ def EndPlayerTurn(enemies):
 
     while scanEnemy < len(enemies):
         if enemies[scanEnemy].hp <= 0:
-            print("\033[1;32m", enemies[scanEnemy].name, scanEnemy + 1, " est vaincu !\033[0m")
+            print("\033[1;32m", enemies[scanEnemy].name, scanEnemy + 1, " fainted !\033[0m")
             player.xp += enemies[scanEnemy].xp
             player.coins += enemies[scanEnemy].gold
 
@@ -581,13 +580,13 @@ def EndPlayerTurn(enemies):
         scanEnemy += 1
 
     if not enemies:
-        print("\033[1;32m Vous remportez le combat !\033[0m")
-        print("\033[32m Vous avez ", player.coins, " pieces d'or au total. \033[0m")
+        print("\033[1;32m You win! !\033[0m")
+        print("\033[32m You have ", player.coins, " coins in total \033[0m")
         Level()
         Movement()
     else:
         for u in range(len(enemies)):
-            print("\033[32m Il reste", enemies[u].hp, "PV à", enemies[u].name, u + 1, "\033[0m")
+            print("\033[32m He stays", enemies[u].hp, "Pv at", enemies[u].name, u + 1, "\033[0m")
         EnemiesTurn(enemies)
 
 
@@ -600,13 +599,13 @@ def EnemiesTurn(enemies):
     for i in range(len(enemies)):
         dodge = random.randint(0, 9)
         if dodge >= 8:
-            print("\033[32m Vous esquivez l'attaque de", enemies[i].name, i + 1, "! \033[0m")
+            print("\033[32m You dodge", enemies[i].name, i + 1, "! \033[0m")
         else:
-            print("\033[33m ", enemies[i].name, i + 1, "Attaque ! \033[0m")
-            print("\033[31m vous avez perdu", enemies[i].atk - player.armor, "PV \033[0m")
+            print("\033[33m ", enemies[i].name, i + 1, "Attack ! \033[0m")
+            print("\033[31m You lost", enemies[i].atk - player.armor, "PV \033[0m")
             player.hp -= enemies[i].atk - player.armor
 
-    print("\033[33m il vous reste", player.hp, "PV \033[0m")
+    print("\033[33m You still have", player.hp, "PV \033[0m")
 
     if player.hp <= 0:
         gameOver()
@@ -618,16 +617,16 @@ def EnemiesTurn(enemies):
 def gameOver():
     print("")
     print(
-        "\033[1;31m Votre aventure s'achève ici. Avec un peu de chance, une gentille déesse voudra bien vous réincarner (Ephc !)")
-    print(" Mais en attendant votre dépouille nourirra les monstres... \033[0m")
+        "\033[1;31m Your adventure ends here. With a little luck, a kind goddess will want to reincarnate you (Ephc!))")
+    print(" But while waiting your remains will feed the monsters ... \033[0m")
     print("")
-    retry = str(input("\033[1;32m Voulez-vous recommencer ? (Oui/Non) \033[0m"))
-    if retry == "Oui" or retry == "oui":
+    retry = str(input("\033[1;32m Will you retry? y/n \033[0m"))
+    if retry == "yes" or retry == "Yes":
         mainMenu()
-    elif retry == "Non" or retry == "non": 
+    elif retry == "no" or retry == "No": 
         sys.exit()
     else :
-        print("...Même ça, c'est trop dur pour toi ?...")
+        print("... Even that, is it too hard for you? ...")
         sys.exit()
     
 
