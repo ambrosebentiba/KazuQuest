@@ -186,7 +186,11 @@ class explosive_shoot:
         self.cost = 15
         self.dmg = 11
 
-
+def typingPrint(text):
+  for character in text:
+    sys.stdout.write(character)
+    sys.stdout.flush()
+    time.sleep(0.05)
 
 # Display the menu at the start of the game, wich allows the player to start a new game or see the credits.
 def mainMenu():
@@ -461,7 +465,7 @@ def spawnEnemies():
             for i in range(enemyNumber):
                 Enemies.append(bandit())
         elif enemyType == 4:
-             enemyType = "rocher(s) explosif(s)"
+             enemyType = "Explosive Rocks"
              enemyNumber = random.randint(1,2)
              for i in range (enemyNumber) :
                  Enemies.append(explosive_rock())
@@ -554,7 +558,7 @@ def Fight(enemies):
 
     # If the player sends an incorrect value on the menu, restart fight function
     else:
-        print("\033[31m Erreur, retour en arrière \033[0m")
+        print("\033[31m What? Please choose an actual option next time.\033[0m")
         Fight(enemies)
 
 
@@ -637,7 +641,7 @@ def gameOver():
 def Level():
     while player.xp >= player.xpSup:
         player.lvl += 1
-        print("\033[1;32m Félicitation, vous êtes passé au niveau", player.lvl, "! \033[0m")
+        print("\033[1;32m Congrats, you have leveled up!", player.lvl, "! \033[0m")
         player.xpSup = int(player.xpSup * 2.2)
         player.atk += 1
         player.maxHp += 3
@@ -645,9 +649,9 @@ def Level():
         player.maxMp += 2
         player.mp = player.maxMp
         print("\033[32m atk: ", player.atk, ", hp: ", player.maxHp, ", mp: ", player.maxMp, "\033[0m")
-        print("\033[1;32m Vos PV et vos PM ont étés restaurés ! \033[0m")
-    print("\033[32m Il vous reste ", (player.xpSup - player.xp),
-          " points d'xp avant de passer au niveau supérieur \033[0m")
+        print("\033[1;32m Your PVs and PMs have restored\033[0m")
+    print("\033[32m You still have ", (player.xpSup - player.xp),
+          " xp before you can level up to the next level.\033[0m")
 
 
 # If skill option is choosen in fight menu, display the amount of mp
@@ -664,47 +668,47 @@ def Level():
 
 # Next, launch EndplayerTurn function.
 def Skill(enemies):
-    print("\033[1;34m Vous avez ", player.mp, " / ", player.maxMp, "pm \033[0m")
+    print("\033[1;34m You have ", player.mp, " / ", player.maxMp, "pm \033[0m")
     for j in range(len(player.skills)):
         print(j + 1, " - ", (player.skills[j]).name, "(", (player.skills[j]).cost, "mp )")
 
-    ChoixSorts = int(input("\033[1;34m > Choisissez un sort (donner numero) : \033[0m")) - 1
+    ChoixSorts = int(input("\033[1;34m > Choose a Spell \033[0m")) - 1
 
     if ChoixSorts < len(player.skills):
         ChoixSorts = player.skills[ChoixSorts]
 
         # Healing spells :
 
-        if ChoixSorts.name == "Soins légers" or ChoixSorts.name == "Soins intermédiaires" or ChoixSorts.name == "Soins avancés" :
+        if ChoixSorts.name == "Light care" or ChoixSorts.name == "Medium Care" or ChoixSorts.name == "Heavy Care" :
 
             if player.mp >= ChoixSorts.cost :
                 if player.hp < player.maxHp:
                     player.mp -= ChoixSorts.cost
                     player.hp += ChoixSorts.heal
-                    print("\033[1;32m Vous avez été soigné de ", ChoixSorts.heals, " PV ! \033[0m")
+                    print("\033[1;32m You have been treated for ", ChoixSorts.heals, " PV ! \033[0m")
                     if player.hp > player.maxHp:
                         player.hp = player.maxHp
-                        print("\033[32m Il vous reste ", player.hp, " PV \033[0m")
+                        print("\033[32m You have ", player.hp, " PV \033[0m")
                         EndPlayerTurn(enemies)
                     else :
-                        print("\033[32m Votre santée est déjà pleine \033[0m")
+                        print("\033[32m Your health is already full. \033[0m")
                         Skill(enemies)
                 else :
-                    print("Vous avez déjà toute votre vie !")
+                    print("You already have all you lives !")
                     Skill(enemies)
             else:
-                print("\033[31m Vous n'avez pas assez de mana \033[0m")
-                print("\033[33m Il vous manque ", ChoixSorts.cost - player.mp, " MP \033[0m")
+                print("\033[31m You don't have enough mana \033[0m")
+                print("\033[33m You missed! ", ChoixSorts.cost - player.mp, " MP \033[0m")
             Skill(enemies)
 
         # Other spells
 
-        elif ChoixSorts.name == "Sanctuaire Sacré" :
+        elif ChoixSorts.name == "Sacred Shrine" :
             if player.mp >= ChoixSorts.cost :
                 if len(enemies) > 1:
-                    ChoixEnemy = int(input("\033[34m Lequel voulez-vous attaquer ? \033[0m")) - 1
+                    ChoixEnemy = int(input("\033[34m Which enemy do you want to attack? \033[0m")) - 1
                     while ChoixEnemy < 0 or ChoixEnemy > len(enemies) - 1:
-                        ChoixEnemy = int(input("\033[31m Incorrect. Lequel voulez-vous attaquer ? \033[0m")) - 1
+                        ChoixEnemy = int(input("\033[31m Incorrect! Which enemy would you like to attack? \033[0m")) - 1
                 else:
                     ChoixEnemy = 0
 
