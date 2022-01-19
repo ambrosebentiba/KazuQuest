@@ -713,57 +713,57 @@ def Skill(enemies):
                     ChoixEnemy = 0
 
                 enemies[ChoixEnemy].hp -= ChoixSorts.dmg
-                print("\033[32m Vous avez infligé", ChoixSorts.dmg, "dégats magiques à",enemies[ChoixEnemy].name, ChoixEnemy + 1,"\033[33m")
+                print("\033[32m You have inflicted", ChoixSorts.dmg, "Mmagic damadge to",enemies[ChoixEnemy].name, ChoixEnemy + 1,"\033[33m")
                 player.hp += ChoixSorts.heal
                 player.mp -= ChoixSorts.cost
-                print("\033[1;32m Vous avez récupéré", ChoixSorts.heal, " PV \033[0m")
+                print("\033[1;32m You recovered", ChoixSorts.heal, " PV \033[0m")
                 if player.hp > player.maxHp:
                     player.hp = player.maxHp
-                    print("\033[32m Il vous reste ", player.hp, " PV \033[0m")
+                    print("\033[32m You still have ", player.hp, " PV \033[0m")
                 EndPlayerTurn(enemies)
             else:
-                print("\033[31m Vous n'avez pas assez de mana \033[31m")
-                print("\033[33m Il vous manque ", ChoixSorts.cost - player.mp, " MP \033[0m")
+                print("\033[31m You lack the mana to continue \033[31m")
+                print("\033[33m You missed ", ChoixSorts.cost - player.mp, " MP \033[0m")
                 Skill(enemies)
                 
         # Offensive spells :
         
-        elif ChoixSorts.name == "Drain de vie":
+        elif ChoixSorts.name == "Life Drain ":
             if player.mp >= ChoixSorts.cost:
                 enemies[ChoixEnemy].hp -= ChoixSorts.dmg
                 player.hp += ChoixSorts.heal
                 player.mp -= ChoixSorts.cost
-                print("vous avez infligé", ChoixSorts.dmg, "dégats magiques à",enemies[ChoixEnemy].name, ChoixEnemy + 1)
-                print("vous avez gagné", ChoixSorts.heal, " PV")
+                print("You inflicted ", ChoixSorts.dmg, "magic damadge to ",enemies[ChoixEnemy].name, ChoixEnemy + 1)
+                print("You won", ChoixSorts.heal, " PV")
                 if player.hp > player.maxHp:
                     player.hp = player.maxHp
-                    print("\033[32m Il vous reste ", player.hp, " PV \033[0m")
+                    print("\033[32m You still have ", player.hp, " PV left.\033[0m")
                 EndPlayerTurn(enemies)
             else:
-                print("\033[31m Vous n'avez pas assez de mana \033[0m")
-                print("\033[33m Il vous manque ", player.skills[ChoixSorts].cost - player.mp, " MP \033[0m")
+                print("\033[31m You don't have andy mana left \033[0m")
+                print("\033[33m You missed ", player.skills[ChoixSorts].cost - player.mp, " MP \033[0m")
                 Skill(enemies)
 
         if player.mp >= ChoixSorts.cost:
 
             if len(enemies) > 1:
-                ChoixEnemy = int(input("\033[34m Lequel voulez-vous attaquer ? \033[0m")) - 1
+                ChoixEnemy = int(input("\033[34m Which one would you like to attack? ? \033[0m")) - 1
                 while ChoixEnemy < 0 or ChoixEnemy > len(enemies) - 1:
-                    ChoixEnemy = int(input("\033[31m Incorrect. Lequel voulez-vous attaquer ? \033[0m")) - 1   
+                    ChoixEnemy = int(input("\033[31m Wrong! Which enemy would you like to attack? ? \033[0m")) - 1   
             else:
                 ChoixEnemy = 0
 
             player.mp -= ChoixSorts.cost
             enemies[ChoixEnemy].hp -= ChoixSorts.dmg
-            print("\033[1;32m Vous infligez", ChoixSorts.dmg, "dégats magiques à",enemies[ChoixEnemy].name, ChoixEnemy + 1, "\033[0m")
+            print("\033[1;32m You inflicted", ChoixSorts.dmg, "magic damage to",enemies[ChoixEnemy].name, ChoixEnemy + 1, "\033[0m")
             EndPlayerTurn(enemies)    
         else :
-            print("\033[31m Vous n'avez pas assez de mana \033[31m")
-            print("\033[33m Il vous manque ", ChoixSorts.cost - player.mp, " MP \033[0m")
+            print("\033[31m You don't have enough mana! \0331m")
+            print("\033[33m You missed! ", ChoixSorts.cost - player.mp, " MP \033[0m")
             Skill(enemies)
 
     else:
-        print("\033[31m Pas de sort correspondant, retour en arrière \033[0m")
+        print("\033[31m No correspondandt,  \033[0m")
         Fight(enemies)
 
 
