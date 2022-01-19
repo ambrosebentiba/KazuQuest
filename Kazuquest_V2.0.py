@@ -778,8 +778,8 @@ def Skill(enemies):
 # Next, launch EndplayerTurn function.
 def Item(enemies):
     for j in range(len(player.itemList)):
-        print("\033[34m",j + 1, " - ", (player.itemList[j].name),"( ",player.itemList[j].count,"en stock ) \033[0m")
-    ChoixItem = int(input("\033[1;34m > Que voulez-vous utiliser ? (Choisir nombre) : \033[0m")) - 1
+        print("\033[34m",j + 1, " - ", (player.itemList[j].name),"( ",player.itemList[j].count,"in stock ) \033[0m")
+    ChoixItem = int(input("\033[1;34m > What will you use ? (Choose a number) : \033[0m")) - 1
     if ChoixItem < len(player.itemList):
         if (player.itemList[ChoixItem]).name == "Provisions":
             if food.count > 0 :
@@ -787,56 +787,56 @@ def Item(enemies):
                     player.hp += food.heal
                     food.count -= 1
                     print(food.count)
-                    print("\033[1;32m Vous avez été soigné de ", food.heal, " PV ! \033[0m")
+                    print("\033[1;32m You treated for ", food.heal, " PV ! \033[0m")
                     if player.hp > player.maxHp:
                         player.hp = player.maxHp
-                        print("\033[32m Vous avez ", player.hp, "PV \033[0m")
+                        print("\033[32m You have ", player.hp, "PV \033[0m")
                         EndPlayerTurn(enemies)
                 else:
-                    print("\033[33m Votre vie est déja au maximum \033[0m")
+                    print("\033[33m Your hp is full \033[0m")
                     Item(enemies)
             else:
-                print("\033[31m Vous n'avez plus de nourriture \033[0m")
+                print("\033[31m Your food inventory is empty! \033[0m")
                 Item(enemies)
 
-        elif (player.itemList[ChoixItem]).name == "Potion de soin":
+        elif (player.itemList[ChoixItem]).name == "Care Potion":
             if heal_potion.count > 0:
                 if player.hp < player.maxHp:
                     player.hp += heal_potion.heal
                     heal_potion.count -= 1
-                    print("\033[1;32m Vous avez été soigné de ", heal_potion.heal, " PV !\033[0m")
+                    print("\033[1;32m You treated for ", heal_potion.heal, " PV !\033[0m")
                     if player.hp > player.maxHp:
                         player.hp = player.maxHp
-                        print("\033[32m Vous avez ", player.hp, "PV \033[0m")
+                        print("\033[32m You have ", player.hp, "PV \033[0m")
                         EndPlayerTurn(enemies)
                 else:
-                    print("\033[33m Votre vie est déja au maximum \033[0m")
+                    print("\033[33m Your health bar is full \033[0m")
                     Item(enemies)
             else:
-                print("\033[31m Vous n'avez plus de potion de vie \033[0m")
+                print("\033[31m You don't have any potions left! \033[0m")
                 Item(enemies)
 
-        elif (player.itemList[ChoixItem]).name == "Pierre de mana":
+        elif (player.itemList[ChoixItem]).name == "Mana Stone":
             if heal_potion.count > 0:
                 if player.mp < player.maxMp:
                     player.mp += mana_stone.heal
                     mana_stone.count -= 1
-                    print("\033[1;32m Vous avez été soigné de ", mana_stone.heal, " PM! \033[0m")
+                    print("\033[1;32m You gained ", mana_stone.heal, " PM! \033[0m")
                     if player.mp > player.maxMp:
                         player.mp = player.maxMp
-                        print("\033[34m Vous avez ", player.mp, "MP \033[0m")
+                        print("\033[34m You have ", player.mp, "MP \033[0m")
                         EndPlayerTurn(enemies)
                 else:
-                    print("\033[33m Votre mana est déja au maximum ")
+                    print("\033[33m Your mana is full ")
                     Item(enemies)
             else:
-                print("\033[31m Vous n'avez plus de potions \033[0m")
+                print("\033[31m You don't have any potions left \033[0m")
                 Item(enemies)
         else:
-            print("\033[31m Erreur, retour en arrière \033[0m")
+            print("\033[31m Error :( \033[0m")
             Fight(enemies)
     else:
-        print("\033[31m Erreur, retour en arrière \033[0m")
+        print("\033[31m Error :( \033[0m")
         Fight(enemies)
 
 
@@ -857,60 +857,60 @@ def Item(enemies):
 # For each shop menu, an incorrect value returns the player to the precedent menu.
 def Shop():
     if player.coins > 0:
-        print("\033[32m Vous avez", player.coins, "Eris \033[0m")
-        print("\033[34m> 1 - Voir armes")
-        print("> 2 - Voir armures")
-        print("> 3 - Voir livres de sorts")
-        print("> 4 - Voir consommables")
-        print("> 5 - Voir Auberge")
-        print("> 6 - Sortir\033[0m")
-        ChoixMagasin = int(input("\033[1;34m> Qu'est ce qui vous interesse ? (1/2/3/4/5/6) : \033[0m"))
+        print("\033[32m You have", player.coins, "Eris 033[0m")
+        print("\033[34m> 1 - See weapons")
+        print("> 2 - See armor")
+        print("> 3 - See spell books")
+        print("> 4 - See consumables")
+        print("> 5 - See Hostel")
+        print("> 6 - Going Out033[0m")
+        ChoixMagasin = int(input("\033[1;34m> What are you intrested in ? (1/2/3/4/5/6) : \033[0m"))
         if ChoixMagasin == 1:
-            print("\033[32m Vous avez", player.coins, "Eris \033[0m")
-            print("\033[34m1 - épée rouillée - 20 Eris/ 3ATK")
-            print("2 - épée en fer - 56 Eris/ 6ATK")
-            print("3- épée en acier - 120 ris/ 8ATK")
-            print("4 - épée en mythril - 250 Eris/ 15ATK")
-            print("5 - retour \033[0m")
+            print("\033[32m You have", player.coins, "Eris 033[0m")
+            print("\033[34m1 - rusty sword - 20 Eris/ 3ATK")
+            print("2 - iron sword - 56 Eris/ 6ATK")
+            print("3 - steel sword - 120 ris/ 8ATK")
+            print("4 - sword in mythril - 250 Eris/ 15ATK")
+            print("5 - back 033[0m")
             ChoixArmes = int(input("\033[1;34m Que Voulez vous acheter ? (1/2/3/4/5) : \033[0m"))
             if ChoixArmes == 1:
                 if player.coins >= 20:
-                    print("\033[32m Vous avez acheté une épée rouilée! \033[0m")
+                    print("\033[32m You baught a red sowrd \033[0m")
                     player.weapon = 3
                     player.coins -= 20
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet objet \033[0m")
+                    print("\033[31m You donèt have enough \033[0m")
                     Shop()
             elif ChoixArmes == 2:
                 if player.coins >= 56:
-                    print("\033[34m Vous avez acheté une épée en fer !\033[0m")
+                    print("\033[34m You baught a Iron sword !\033[0m")
                     player.weapon = 6
                     player.coins -= 56
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet objet \033[0m")
+                    print("\033[31m You donèt have enough! \033[0m")
                     Shop()
             elif ChoixArmes == 3:
                 if player.coins >= 120:
-                    print("\033[32m Vous avez acheté une épée en acier !\033[0m")
+                    print("\033[32m You baught a steel sword! !\033[0m")
                     player.weapon = 8
                     player.coins -= 120
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet objet \033[0m")
+                    print("\033[31m You donèt have enough for this \033[0m")
                     Shop()
             elif ChoixArmes == 4:
                 if player.coins >= 250:
-                    print("\033[32m Vous avez acheté une épée en mythril !\033[0m")
+                    print("\033[32m You baught a mythic sword!\033[0m")
                     player.weapon = 15
                     player.coins -= 250
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet objet \033[0m")
+                    print("\033[ You donèt have enough \033[0m")
                     Shop()
             else:
-                print("\033[33m Vous retournez voir les articles du magasin \033[0m")
+                print("\033[33m You go back into the store \033[0m")
                 Shop()
 
         elif ChoixMagasin == 2:
