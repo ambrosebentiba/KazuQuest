@@ -875,34 +875,34 @@ def Shop():
             ChoixArmes = int(input("\033[1;34m Que Voulez vous acheter ? (1/2/3/4/5) : \033[0m"))
             if ChoixArmes == 1:
                 if player.coins >= 20:
-                    print("\033[32m You baught a red sowrd \033[0m")
+                    print("\033[32m You bought a red sowrd \033[0m")
                     player.weapon = 3
                     player.coins -= 20
                     Shop()
                 else:
-                    print("\033[31m You donèt have enough \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
             elif ChoixArmes == 2:
                 if player.coins >= 56:
-                    print("\033[34m You baught a Iron sword !\033[0m")
+                    print("\033[34m You bought a Iron sword !\033[0m")
                     player.weapon = 6
                     player.coins -= 56
                     Shop()
                 else:
-                    print("\033[31m You donèt have enough! \033[0m")
+                    print("\033[31m You don't have enough! \033[0m")
                     Shop()
             elif ChoixArmes == 3:
                 if player.coins >= 120:
-                    print("\033[32m You baught a steel sword! !\033[0m")
+                    print("\033[32m You bought a steel sword! !\033[0m")
                     player.weapon = 8
                     player.coins -= 120
                     Shop()
                 else:
-                    print("\033[31m You donèt have enough for this \033[0m")
+                    print("\033[31m You don't have enough for this \033[0m")
                     Shop()
             elif ChoixArmes == 4:
                 if player.coins >= 250:
-                    print("\033[32m You baught a mythic sword!\033[0m")
+                    print("\033[32m You bought a mythic sword!\033[0m")
                     player.weapon = 15
                     player.coins -= 250
                     Shop()
@@ -914,69 +914,69 @@ def Shop():
                 Shop()
 
         elif ChoixMagasin == 2:
-            print("\033[32m Vous avez", player.coins, "Eris \033[0m")
-            print("\033[34m 1 - vétements de voyageur - 15 Eris/ 2DEF")
-            print("2 - armure en fer - 68 Eris / 4DEF")
-            print("3-  armure en acier - 145 Eris / 7DEF")
-            print("4 - armure en orchicalque 300 Eris / 9DEF")
-            print("5 - retour \033[0m")
-            ChoixArmures = int(input("\033[1;34m Que Voulez vous acheter ? (1/2/3/4/5) : \033[0m"))
+            print("\033[32m You have", player.coins, "Eris \033[0m")
+            print("\033[34m 1 - Traveller's clothing - 15 Eris/ 2DEF")
+            print("2 - fur armour - 68 Eris / 4DEF")
+            print("3-  Steel armour - 145 Eris / 7DEF")
+            print("4 - Metal armour 300 Eris / 9DEF")
+            print("5 - retern \033[0m")
+            ChoixArmures = int(input("\033[1;34m What do you choose ? (1/2/3/4/5) : \033[0m"))
             if ChoixArmures == 1:
                 if player.coins >= 15:
-                    print("\033[32m Vous avez acheté un vétement de voyageur !\033[0m")
+                    print("\033[32mv You bought Traveller's clothing !\033[0m")
                     player.armor = 1
                     player.coins -= 15
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet armure \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
 
             elif ChoixArmures == 2:
                 if player.coins >= 68:
-                    print("\033[32m Vous avez acheté une armure en fer ! \033[0m")
+                    print("\033[32m You bought fur armour ! \033[0m")
                     player.armor = 3
                     player.coins -= 68
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet armure \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
             elif ChoixArmures == 3:
                 if player.coins >= 145:
-                    print("\033[32m Vous avez acheté une armure en acier ! \033[0m")
+                    print("\033[32m You bought steel armour \033[0m")
                     player.armor = 5
                     player.coins -= 145
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet armure \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
             elif ChoixArmures == 4:
                 if player.coins >= 300:
-                    print("\033[32m Vous avez acheté une armure en orichalque ! \033[0m")
+                    print("\033[32m You bought a metal armour! \033[0m")
                     player.armor = 7
                     player.coins -= 300
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter cet armure \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
             elif ChoixArmures == 5:
-                print("\033[33m Vous retournez voir les articles du magasin \033[0m")
+                print("\033[33m You returned all the articles to the store. \033[0m")
                 Shop()
 
         elif ChoixMagasin == 3:
-            print("\033[32m Vous avez", player.coins, "Eris \033[0m")
-            print("\033[34m1 - Soin intermédiaire- 70 Eris")
-            print("2 - Soins avancés - 140 Eris")
-            print("3-  Eclair - 76 Eris")
-            print("4 - Tir Explosif - 150 Eris")
-            print("5 - Sanctuaire sacré- 180 Eris")
-            print("6 - Drain de vie -  170 Eris")
+            print("\033[32m You have", player.coins, "Eris \033[0m")
+            print("\033[34m1 - Intermediate care - 70 Eris")
+            print("2 - Advanced care - 140 Eris")
+            print("3-  Lightning - 76 Eris")
+            print("4 - Explosion - 150 Eris")
+            print("5 - Sacrade sanctuary- 180 Eris")
+            print("6 - Life drain -  170 Eris")
             # print("7 - Explosion - 1000 Eris")
-            print("7 - retour \033[0m")
-            ChoixSort = int(input("\033[1;34m Que Voulez vous acheter ? (1/2/3/4/5/6/7) : \033[0m"))
+            print("7 - Return \033[0m")
+            ChoixSort = int(input("\033[1;34m what do you choose ? (1/2/3/4/5/6/7) : \033[0m"))
             if ChoixSort == 1 :
                 if player.coins >= 70:
-                    print("\033[1;32m Vous avez acheté le sort soin intermédiaire !\033[0m")
-                    print("\033[32m Vous avez désormais accès à cette compétence\033[0m")
+                    print("\033[1;32m You bought Intermediate care !\033[0m")
+                    print("\033[32m You now have that skill\033[0m")
                     (player.skills).append(intermediate_heal())
                     player.coins -= 70
                     Shop()
@@ -986,8 +986,8 @@ def Shop():
 
             elif ChoixSort == 2:
                 if player.coins >= 140:
-                    print("\033[1;32m Vous avez acheté le sort soin avancé !\033[0m")
-                    print("\033[32m Vous avez désormais accès à cette compétence\033[0m")
+                    print("\033[1;32m You bought advanced care !\033[0m")
+                    print("\033[32m You now have that skill \033[0m")
                     (player.skills).append(advanced_heal())
                     player.coins -= 140
                     Shop()
@@ -997,239 +997,236 @@ def Shop():
 
             elif ChoixSort == 3:
                 if player.coins >= 76:
-                    print("\033[1;32m Vous avez acheté le sort d'éclair\033[0m")
-                    print("\033[32m Vous avez désormais accès à cette compétence\033[0m")
+                    print("\033[1;32m You bought lightning\033[0m")
+                    print("\033[32m You now have that skill\033[0m")
                     (player.skills).append(lightning())
                     player.coins -= 76
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter ce livre de sort\033[0m")
+                    print("\033[31m You don't have enough\033[0m")
                     Shop()
 
             elif ChoixSort == 4:
                 if player.coins >= 150:
-                    print("\033[1;32m Vous avez acheté le sort tir explosif \033[0m")
-                    print("\033[32m Vous avez désormais accès à cette compétence \033[0m")
+                    print("\033[1;32m You bought explosion \033[0m")
+                    print("\033[32m You now have that skill \033[0m")
                     (player.skills).append(explosive_shoot())
                     player.coins -= 150
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter ce livre de sort \033[0m")
+                    print("\033[31m You don't have enough\033[0m")
                     Shop()
 
             elif ChoixSort == 5:
                 if player.coins >= 180:
                     print("\033[1;32m Vous avez acheté le sort sanctuaire sacré \033[0m")
-                    print("\033[32m Vous avez désormais accès à cette compétence \033[0m")
+                    print("\033[32m You now have that skill \033[0m")
                     (player.skills).append(sacred_sanctuary())
                     player.coins -= 180
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter ce livre de sort \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
 
             elif ChoixSort == 6:
                 if player.coins >= 170:
                     print("\033[1;32m Vous avez acheté le sort de drain de vie \033[0m")
-                    print(" \033[32mvous avez désormais accès à cette compétence \033[0m")
+                    print(" \033[32m You now have that skill \033[0m")
                     (player.skills).append(drain_touch())
                     player.coins -= 170
                     Shop()
                 else:
-                    print("\033[31m Vous n'avez pas assez d'argent pour acheter ce livre de sort \033[0m")
+                    print("\033[31m You don't have enough \033[0m")
                     Shop()
-
-            # elif ChoixSort == 7:
-                # if player.coin >= 1000 :
-                #     print("Kazuma vous regarde bizzarement...")
-                #     print("Une étrange fille vêtue de rouge accompagnée d'un chat noir se montre soudainement.")
-                #     print("Fille étrange : Tu veux en apprendre sur la magie la plus puissante au monde ?")
-                #     print("Megumin : Je suis Megumin ! La plus grande des archimage et possesseuse de la sublime magie d'explosion ! ")
-                #     print("vous avez accès maintenant à cette compétences")
-                #     (player.skills).append(explosion())
-                #     player.coins -= 1000
-                #     Shop()
-                # else :
-                #     print("\033[31m Vous n'avez pas assez d'argent pour acheter ce livre de sort \033[0m")
-                #     Shop()
+                
+                elif ChoixSort == 7:
+                 if player.coin >= 1000 :
+                     print("Kazuma looks confused...")
+                     print("A strange girl dressed in red accompanied by a black cat shows up suddenly.")
+                     print("Strange Girl: You want to learn about the most powerful magic in the world ?")
+                     print("Megumin: I'm Megumin! The greatest archmage and possessor of the sublime magic of explosion ! ")
+                     print("You now have access to this skill")
+                     (player.skills).append(explosion())
+                     player.coins -= 1000
+                     Shop()
+                 else :
+                     print("\033[31m You don't have enough money to buy this spell book \033[0m")
+                     Shop()
 
             elif ChoixSort == 8:
-                print("\033[33m Vous retournez voir les articles du magasin \033[0m")
+                print("\033[33m You return all the articles to the store \033[0m")
                 Shop()
 
 
         elif ChoixMagasin == 4:
-            print("\033[32m Vous avez", player.coins, "Eris \033[0m")
+            print("\033[32m You have", player.coins, "Eris \033[0m")
             print("\033[34m1 - Provisions - 10 Eris")
-            print("2 - Potions de vie- 100 Eris ")
-            print("3 - Pierres de mana- 60 Eris ")
-            print("4 - retour \033[0m")
-            ChoixObjet = int(input("\033[1;34m Que Voulez vous acheter ? (1/2/3/4) : \033[0m"))
+            print("2 - Potion of life- 100 Eris ")
+            print("3 - Potion of mana- 60 Eris ")
+            print("4 - Return \033[0m")
+            ChoixObjet = int(input("\033[1;34m What do you choose ? (1/2/3/4) : \033[0m"))
             if ChoixObjet == 1:
-                print("\033[32m Vous avez acheté des provisions !\033[0m")
+                print("\033[32m You bought groceries !\033[0m")
                 player.item.append("provision")
                 player.coins -= 10
                 Shop()
             elif ChoixObjet == 2:
-                print("\033[32m Vous avez acheté une potion de vie !\033[0m")
+                print("\033[32m You bought the postion of life !\033[0m")
                 player.item.append("potion de vie")
                 player.coins -= 100
                 Shop()
             elif ChoixObjet == 3:
-                print("\033[32m Vous avez acheté une pierre de mana !\033[0m")
-                player.item.append("pierre de mana")
+                print("\033[32m You bot the postion of mana !\033[0m")
+                player.item.append("Potion of mana")
                 player.coins -= 60
                 Shop()
-            # elif ChoixObjet == 4:
-            #     print("\033[32m Vous avez acheté une pierre explosives !\033[0m")
-            #     player.item.append("fragment explosif")
-            #     player.coins -= 5
-            #     Shop()
+             elif ChoixObjet == 4:
+                 print("\033[32m You have explotion potion !\033[0m")
+                 player.item.append("Exploive Fragment")
+                 player.coins -= 5
+                 Shop()
             else:
-                print("\033[33m Vous retournez voir les articles du magasin \033[0m")
+                print("\033[33m You return all the atricles back to the store. \033[0m")
                 Shop()
         elif ChoixMagasin == 5:
-            print("\033[34m Vous entrez dans une petite auberge qui sert de lieu de repos")
+            print("\033[34m You enter a small inn that serves as a resting place")
             print(
-                "Les Auberges ou les lieu de repos sont des endroits qui vous permettent de régnérer votre santé et votre magie \033[0m")
-            # print("\033[32m Vous avez",player.hp," / ",player.maxHp,"PV et ",player.mp," / ",player.maxMp," MP \033[0M" )
-            print("\033[32m Vous avez", player.coins, "Eris,", player.hp, "/", player.maxHp, "PV et ", player.mp, "/",
+                "Hostels or resting places are places that allow you to control your health and magic 033[0m")
+            print("033[32m You have",player.hp," / ",player.maxHp,"PV and ",player.mp," / ",player.maxMp," MP 033[0M" )
+            print("\033[32m You have", player.coins, "Eris,", player.hp, "/", player.maxHp, "PV et ", player.mp, "/",
                   player.maxMp, " MP \033[0m")
-            repos = (input("\033[33m Voulez-vous vous reposez dans l'auberge pour 20 Eris ? (Oui/Non): \033[0m"))
+            repos = (input("\033[33m Do you want to rest for 20 Eris ? (Yes/No): \033[0m"))
             if repos == "Oui":
                 player.hp = player.maxHp
                 player.mp = player.maxMp
                 player.coins -= 20
                 print("\033[1;32m Vous étes reposez dans l'auberge, vous avez maintenant", player.hp, "PV/", player.mp,
                       "PM \033[0m")
-                print("\033[32m il vous reste", player.coins, "Eris \033[0m")
+                print("\033[32m You rest for", player.coins, "Eris \033[0m")
                 Shop()
-            elif repos == "Non":
-                print("\033[33m Vous quittez l'auberge et retournez au magasin \033[0m")
+            elif repos == "No":
+                print("\033[33m You leave and return to the store \033[0m")
                 Shop()
         elif ChoixMagasin == 7:
-            print("\033[31m Vous décidez de partir du magasin\033[0m")
+            print("\033[31m You decide to leave the store\033[0m")
             Movement()
     else:
-        print("\033[31m Vous avez été kick du magasin\033[0m")
+        print("\033[31m You have been kicked from the store.\033[0m")
     Movement()
 
 
 # When the player enters the boss zone, start the fight against Vanir with a message.
 def EventVanir():
-    print("\033[0m- Vous êtes devant une grande porte en métal.")
+    print("\033[0m- You are in front of a large metal door.")
     time.sleep(1.5)
-    print("- Vous décidez d'ouvrir et de faire face a votre ennemi.")
+    print("- You decide to open and face your enemy.")
     time.sleep(1.5)
-    print("- Vous voyez un homme portant un masque de théâtre de noir et de blanc ayant les cheveux bleu et portant un costume violet.")
+    print("- You see a man wearing a black and white theatrical mask with blue hair and wearing a purple suit.")
     time.sleep(1.5)
     print('\033[35m')
-    print("- Vanir : Je vous attendais, aventurier.")
+    print("- Vanir: I've been waiting for you, adventurer.")
     time.sleep(1.5)
-    print("- Vanir : Vous avez fait face à bien des épreuves jusqu'ici comme combattre de nombreux monstres et vaincu la plupart des pièges.")
+    print("- Vanir: You have faced many hardships so far like fighting many monsters and defeating most traps.")
     print('\033[39m')
-    print("- Vous voyez des petites poupées à son image fermant la porte, vous empêchant de vous enfuir.")
+    print("- You see little dolls in his image closing the door, preventing you from running away.")
     time.sleep(1.5)
     print('\033[35m')
-    print("- Vanir : Il est maintenant temps pour vous et moi de nous affronter et de savoir lequel du mal ou du bien triomphera, en garde !")
+    print("- Vanir: Now is the time for you and me to face off and find out which of evil or good will triumph, beware!")
     print('\033[39m')
     FightVanir()
-    # print("")
-    # print("\033[1;31m Bientôt dans votre jeu ! \033[0m")
+    print("")
+    print("\033[1;31m Coming soon to your game! \033[0m")
 
 
 def FightVanir():
-    print("\033[1;34m Vous avez ", player.hp," / ",player.maxHp,"pv")
-    print(" Vous avez ", player.mp," / ",player.maxMp,"pm \033[0m")
-    print("\033[34m1 - Attaquer")
+    print("\033[1;34m You have ", player.hp," / ",player.maxHp,"pv")
+    print(" You have ", player.mp," / ",player.maxMp,"pm \033[0m")
+    print("\033[34m1 - Attack")
     critical = random.randint(0,9)
     if critical >= 8:
             damage = (player.atk*2) + player.weapon
-            print("\033[1;32m vous utiliser votre épée et tranché Vanir lui infligean", damage, "de dégats !\033[0m")
+            print("\033[1;32m You use your sword and slice Vanir inflicting him", damage, "de dégats !\033[0m")
             vanir.hp -= damage
             EndVanir()
     else:
         damage = player.atk + player.weapon
-        print("\033[32m vous attaquez Vanir avec une puissante attaque lourde ", damage, "de dégats \033[0m")
+        print("\033[32m You attack Vanir with a powerful heavy attack ", damage, "de dégats \033[0m")
         vanir.hp -= damage
         EndVanir()
 
 
 def EndVanir():
-        if vanir.hp <= 0:
-            print("Vanir s'effondre de manière dramatique, mortellement blessé, Vanir commence à prononcer ses derniers mots.")
-            time.sleep(1.5)
-            print('\033[35m')
-            print("Vanir : Vous m’avez eu...j’ai toujours rêvé d’une fin aussi spectaculaire.")
-            time.sleep(1.5)
-            print("Vanir : Mes richesses...je vous les offre.")
-            time.sleep(1.5)
-            print("Vanir : Merci, aventurier, pour cette fin digne d’une légende.")
-            time.sleep(1.5)
-            print('\033[39m')
-            print("Dans un dernier soupir, Vanir pointe un coffre du doigt.")
-            time.sleep(1.5)
-            print("Vous montez les escaliers, passant au-dessus de la dépouille de Vanir et vous dirigez vers le coffre scellé .")
-            time.sleep(1.5)
-            print("")
+         if vanir.hp <= 0:
+             print("Vanir collapses dramatically, mortally wounded, Vanir begins to speak his last words.")
+             time.sleep(1.5)
+             print('\033[35m')
+             print("Vanir: You got me...I've always dreamed of such a spectacular ending.")
+             time.sleep(1.5)
+             print("Vanir: My riches...I offer them to you.")
+             time.sleep(1.5)
+             print("Vanir: Thank you, adventurer, for this legendary ending.")
+             time.sleep(1.5)
+             print('\033[39m')
+             print("With a final sigh, Vanir points to a chest.")
+             time.sleep(1.5)
+             print("You climb the stairs, passing over Vanir's remains and into the sealed chest.")
+             time.sleep(1.5)
+             print("")
             #THE TWO DIFFERENT ENDS 
 
-            OpenChest = input("Voulez vous ouvrir le coffre (Oui/Non) : ")
-            #BAD ENDING
-            if OpenChest == "Oui" or OpenChest  == "Yes" or OpenChest == "oui" :
-                print("Vous ouvrez le coffre à l’intérieur...rien...à l’exception d’un vieux morceau de papier. Dessus est inscrit “VOUS AVEZ PERDU")
+            OpenChest = input("Do you want to open the chest (Yes/No): ")
+            #BADENDING
+            if OpenChest == "Yes" or OpenChest == "Yes" or OpenChest == "yes":
+                print("You open the chest inside...nothing...except an old piece of paper. On it is written “YOU HAVE LOST”)
                 time.sleep(1.5)
-                print("Vous entendez un rire venant de derrière vous")
+                print("You hear laughter coming from behind you")
                 time.sleep(1.5)
-                print("Quand vous lisez le mot, vous entendez le dernier rire de Vanir avant de mourir. Vous vous retournez pour le frapper, mais il a déjà disparu, parti en paix.")
+                print("When you read the word, you hear Vanir's last laugh before he dies. You turn to hit him, but he's already gone, gone in peace.")
                 time.sleep(1.5)
-                print("Vous entendez un clic soudain, la porte à été verrouillée et des centaines de poupées explosives se dirigent vers vous")
+                print("You hear a sudden click, the door has been locked and hundreds of explosive dolls are heading your way")
                 time.sleep(1.5)
-                print("Dans un dernier élan de courage, vous hurlez comme une fillette et les explosions détruisant le toit vous écrasent sous plusieurs gravats de pierres vous tuant instantanément.")
+                print("In a last burst of courage, you scream like a little girl and the explosions destroying the roof crush you under several rubble of stones killing you instantly.")
                 print("")
                 gameOver()
 
             #GOOD ENDING
-            elif OpenChest == "Non" or OpenChest  == "No" or OpenChest == "non" :
-                print("Vous sentez le piège venir à des kilomètres et vous contentez de partir.")
-                time.sleep(1.5)
-                print("Vanir vous regarde stupéfait.")
-                time.sleep(1.5)
-                print('\033[35m')
-                print("Vanir : Mais...ma fin  parfaite!")
-                time.sleep(1.5)
-                print('\033[39m')
-                print("Il se désintègre en lâchant une dernière larme.")
-                time.sleep(1.5)
-                print("Content de votre aventure, vous retournez à la guilde et dépensez tout l’argent de votre prime en alcool, en nourriture et de passer au café avec vos amis.")
-                time.sleep(1.5)
-                print("Aujourd'hui fut une bonne journée.")
-                sys.exit()
+            elif OpenChest == "No" or OpenChest == "No" or OpenChest == "no":
+                 print("You smell the trap coming miles away and just walk away.")
+                 time.sleep(1.5)
+                 print("Vanir looks at you stunned.")
+                 time.sleep(1.5)
+                 print('\033[35m')
+                 print("Vanir: But...my perfect ending!")
+                 time.sleep(1.5)
+                 print('\033[39m')
+                 print("He disintegrates with one last tear.")
+                 time.sleep(1.5)
+                 print("Happy with your adventure, you return to the guild and spend all your bounty money on alcohol, food and coffee with your friends.")
+                 time.sleep(1.5)
+                 print("Today was a good day.")
+                 sys.exit()
         else :
-            print("\033[32m Il reste ",vanir.hp,"PV à Vanir\033[0m")
+            print("\033[32m There is ",vanir.hp,"PV to Vanir\033[0m")
             VanirTurn()
             FightVanir()
 
 
 def VanirTurn():
-        dodge = random.randint(0, 9)
-        if dodge >= 8:
-            print("\033[32m Vous esquivez les poupées de Vanir" "! \033[0m")
-            FightVanir()
-        else:
-            print("\033[33m ""Vanir vous envoie des poupées explosives\033[0m")
-            print("\033[31m l'explosion vous cause ", vanir.atk - player.armor,"de domages \033[0m")
-            player.hp -= vanir.atk - player.armor
-            print("\033[33m il vous reste", player.hp, "PV \033[0m")
-            FightVanir()
-        if player.hp <= 0:
-            print("vous avez perdu")
-            gameOver()
-        else:
-            FightVanir()
-
-
-
+        dodge = random. randint(0, 9)
+         if dodge >= 8:
+             print("\033[32m You are dodging the Vanir dolls" "!\033[0m")
+             FightVanir()
+         else:
+             print("\033[33m ""Vanir sends you explosive dolls\033[0m")
+             print("\033[31m the explosion causes you", vanir.atk - player.armor,"damage \033[0m")
+             player.hp -= vanir.atk - player.armor
+             print("\033[33m you have left", player.hp, "PV \033[0m")
+             FightVanir()
+         if player.hp <= 0:
+             print("you lost")
+             gameOver()
+         else:
+             FightVanir()
 
 largeurGrille = 7
 hauteurGrille = 10
@@ -1242,8 +1239,7 @@ advanced_heal()
 lightning()
 drain_touch()
 sacred_sanctuary()
-
-# explosive_fragment()
+explosive_fragment()
 
 vanir = Vanir()
 
